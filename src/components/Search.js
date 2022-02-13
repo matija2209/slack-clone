@@ -1,21 +1,16 @@
 import React from 'react'
-import ChatThreads from './ChatThreads'
-
 import styled from 'styled-components'
 
-function ChatMessages() {
-  
-
+export default function Search() {
   return <>
     <Wrapper>
-      
-      <ChatThreads></ChatThreads>
+        <input type="text" name="search" id="search" />
     </Wrapper>
   </>
 }
 
-export default ChatMessages
-
 const Wrapper = styled.div`
+    background-color: white;
+
 
 `
