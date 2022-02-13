@@ -8,16 +8,19 @@ export const ChatProvider = ({children}) =>{
 
     const initialState = {
         channelName : 'general',
+        isChatLoading : 'false',
         messages:[
             {
                 displayName:"Matija",
                 message:"Who is the best boyfriend ever?",
-                timestamp:moment.unix(1644750733)
+                timestamp:moment.unix(1644750733),
+                channel:'general'
             },
             {
                 displayName:"Katharina",
                 message:"MY BOYFRIEND! YEEEAH",
-                timestamp:moment.unix(1644750934)
+                timestamp:moment.unix(1644750934),
+                channel:'general'
             },
         ],
     }
