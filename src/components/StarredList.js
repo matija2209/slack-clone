@@ -1,9 +1,11 @@
 import React from 'react'
+import ListTitle from './ListTitle'
 
 function StarredList() {
-  return (
-    <div>StarredList</div>
-  )
+  return <>
+    <ListTitle title="Starred"></ListTitle>
+
+  </>
 }
 
 export default StarredList

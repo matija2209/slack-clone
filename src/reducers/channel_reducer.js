@@ -1,18 +1,13 @@
 import {
-    SIDEBAR_OPEN
+  ADD_CHANNEL
   } from '../actions'
 
 export default function channel_reducer(state,action) {
     const type = action.type
     switch (type) {
-        case "value":
-            
-            break;
-    
+        case ADD_CHANNEL:
+            return {...state,channelList:[...state.channelList,action.payload]}
         default:
             break;
     }
-  return (
-    state
-  )
 }
