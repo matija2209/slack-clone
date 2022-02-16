@@ -2,15 +2,15 @@ import React from 'react'
 import ChatInput from './ChatInput'
 import ChatMessages from './ChatMessages'
 import styled from 'styled-components'
-import {useChatContext} from '../context/chat_context'
+import {useChannelContext} from '../context/channel_context'
 import ChatTitle from './ChatTitle'
 
 function Chat() {
-  const {channelName} = useChatContext()
+  const {defaultChannel} = useChannelContext()
   return (
     <main>
       <Wrapper>
-        <ChatTitle name={channelName}></ChatTitle>
+        <ChatTitle name={defaultChannel}></ChatTitle>
         <ChatMessages></ChatMessages>
         <ChatInput></ChatInput>
       </Wrapper>

@@ -5,12 +5,12 @@ import {useChannelContext} from '../context/channel_context'
 import ChannelListItem from './ChannelListItem'
 
 function ChannelsList() {
-  const {addChannel,channelList} = useChannelContext()
+  const {addChannel,channelList,changeChannel} = useChannelContext()
     return <>
     <ListTitle title="Channels"></ListTitle>
     <ul>
       {channelList.map(channel=>{
-        return <ChannelListItem channel={channel}>
+        return <ChannelListItem channel={channel} changeChannel={changeChannel}>
         </ChannelListItem>
       })}
     </ul>
