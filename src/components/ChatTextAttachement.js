@@ -6,6 +6,7 @@ import {useChannelContext} from '../context/channel_context'
 function ChatTextAttachement() {
   const {postMessage} = useChatContext();
   const {defaultChannel} = useChannelContext()
+  
   return <>
     <Wrapper>
       <div>
@@ -13,7 +14,7 @@ function ChatTextAttachement() {
         <span>I</span>
         <span>@</span>
       </div>
-      <input type="button" value="SEND" onClick={postMessage} channel={defaultChannel}/>
+      <input type="button" value="SEND" onClick={postMessage} channel={defaultChannel.label}/>
     </Wrapper>
   </>
 }

@@ -10,7 +10,7 @@ function Chat() {
   return (
     <main>
       <Wrapper>
-        <ChatTitle name={defaultChannel}></ChatTitle>
+        <ChatTitle name={defaultChannel.label}></ChatTitle>
         <ChatMessages></ChatMessages>
         <ChatInput></ChatInput>
       </Wrapper>
