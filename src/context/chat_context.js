@@ -8,33 +8,40 @@ const ChatContext = React.createContext()
 
 export const ChatProvider = ({children}) =>{
     const [channelName,setChannelName] = useState("")
+    
     const initialState = {
-        channelName : 'general',
+        channelName : {
+            channel:'general',
+            id:1
+        },
         isChatLoading : 'false',
         currentMessage: "",
         messages:[
             {
                 displayName:"Matija",
                 userId:1,
-                message:"Who is the best boyfriend ever?",
+                message:"Hello Everyone!",
                 timestamp:moment.unix(1644750733),
                 channel:'general',
+                channelId:1,
                 id:1
             },
             {
                 displayName:"Katharina",
                 userId:2,
-                message:"MY BOYFRIEND! YEEEAH",
+                message:"Hello MY BOYFRIEND! YEEEAH",
                 timestamp:moment.unix(1644750934),
                 channel:'general',
+                channelId:1,
                 id:2
             },
             {
                 displayName:"Katharina",
                 userId:2,
-                message:"I'm here! Hiiii",
+                message:"This is marketing house. I'm here! Hiiii. I'll prepare lunch now",
                 timestamp:moment.unix(1644750934),
                 channel:'marketing',
+                channelId:2,
                 id:3
             },
             {
@@ -43,6 +50,7 @@ export const ChatProvider = ({children}) =>{
                 message:"Hello babY! When are you coming home?",
                 timestamp:moment.unix(1644750934),
                 channel:'matija-katharina',
+                channelId:5,
                 id:4
             },
             {
@@ -51,6 +59,16 @@ export const ChatProvider = ({children}) =>{
                 message:"I'm hungry. Baby Biki is eating all my food",
                 timestamp:moment.unix(1644750934),
                 channel:'matija-biki',
+                channelId:6,
+                id:5
+            },
+            {
+                displayName:"Biki",
+                userId:3,
+                message:"When are you coming back?",
+                timestamp:moment.unix(1644950934),
+                channel:'matija-biki',
+                channelId:6,
                 id:5
             },
         ],
@@ -70,7 +88,7 @@ export const ChatProvider = ({children}) =>{
             displayName:"Matija",
             message:state.currentMessage,
             timestamp:moment.now(),
-            channel:channelName
+            channelId:channelName.id
         }
         dispatch({
             type:POST_CHAT_MESSAGE,
@@ -83,7 +101,6 @@ export const ChatProvider = ({children}) =>{
             type:CLEAR_MESSAGE_INPUT,
         })
     },[state.channelName])
-    
     return <>
         <ChatContext.Provider value={{...state,inputMessageChange,postMessage,setChannelName}}>
             {children}

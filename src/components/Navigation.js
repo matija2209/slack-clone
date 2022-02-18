@@ -7,7 +7,7 @@ import AppsList from './AppsList'
 
 function Navigation() {
   return (
-    <div className='navigation'>Navigation
+    <div className='navigation'>
       <NavList></NavList>
       <StarredList></StarredList>
       <ChannelsList></ChannelsList>

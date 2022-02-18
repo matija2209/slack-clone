@@ -11,15 +11,14 @@ const {channel,changeChannel} = obj
   const handleClick = e =>{
     e.preventDefault()
     let currentUser = channel.label
-
     if (channel.type === "private") {
       currentUser = `${loggedUserDisplayName}-${channel.label}`.toLocaleLowerCase()
     }
-    changeChannel(currentUser)
-    setChannelName(currentUser)
+    changeChannel({...channel})
+    setChannelName({
+      ...channel,label:currentUser})
     
   }
-
   return <>
     <Wrapper key={channel.id}>
       {channel.type === "private"?"":"#"}<input type="button" value={channel.label} onClick={handleClick} />

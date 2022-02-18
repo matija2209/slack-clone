@@ -12,21 +12,70 @@ export const UserProvider = ({children}) =>{
     const initialState = {
         loggedUserId : 1,
         loggedUserDisplayName : "Matija",
-        isAdmin:true,
-        friends : [
+        users : [
+            {
+                id:1,
+                label:"Matija",
+                isAdmin:true,
+                friends : [
+                    {
+                        id:2,
+                        label:"Katharina",
+                        isAdmin:false,
+                        type:"private"
+                    },
+                    {
+                        id:3,
+                        label:"Biki",
+                        isAdmin:false,
+                        type:"private"
+                    }
+                ],
+                member : [
+                    {
+                        id:1,
+                    },
+                    {
+                        id:2,
+                    },
+                    {
+                        id:3,
+                    },
+                    {
+                        id:4,
+                    }
+        
+                ]
+            },
             {
                 id:2,
                 label:"Katharina",
                 isAdmin:false,
-                type:"private"
+                friends : [
+                    {
+                        id:4,
+                        label:"Daniela",
+                        type:"private"
+                    },
+                    {
+                        id:3,
+                        label:"Biki",
+                        type:"private"
+                    }
+                ],
+                member : [
+                    {
+                        id:1,
+                        label:"general",
+                    },
+                    {
+                        id:2,
+                        label:"marketing"
+                    }
+        
+                ]
             },
-            {
-                id:3,
-                label:"Biki",
-                isAdmin:false,
-                type:"private"
-            }
-        ]
+        ],
     }
 
     const [state,dispatch] = useReducer(reducer,initialState)

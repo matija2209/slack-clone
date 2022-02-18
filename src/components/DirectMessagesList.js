@@ -5,12 +5,15 @@ import {useChannelContext} from '../context/channel_context'
 import ChannelListItem from './ChannelListItem'
 
 function DirectMessagesList() {
-  const {friends} = useUserContext()
+  const {loggedUserId,users} = useUserContext()
   const {changeChannel} = useChannelContext()
+
+  const loggedUserFriends = users.filter(user=>user.id === loggedUserId).map(user=>user.friends)[0]
+  console.log(loggedUserFriends);
   return <>
     <ListTitle title="Direct messages"></ListTitle>
     <ul>
-      {friends.map(channel=>{
+      {loggedUserFriends.map(channel=>{
         return <ChannelListItem channel={channel} changeChannel={changeChannel}>
         </ChannelListItem>
       })}

@@ -10,11 +10,40 @@ export const ChannelProvider = ({children}) =>{
     const initialState = {
         defaultChannel:{
             label:"general",
-            type:"public"
+            type:"public",
+            id:1
         },
         channelList : [
-            {label:'general',id:1},
-            {label:'marketing',id:2},
+            {
+                label:'general',
+                id:1,
+                type:"public"
+            },
+            {
+                label:'marketing',
+                id:2,
+                type:"public"
+            },
+            {
+                label:"threads",
+                id:3,
+                type:"threads",
+            },
+            {
+                label:"dms",
+                id:4,
+                type:"dms"
+            },
+            {
+                label:'matija-katharina',
+                id:5,
+                type:"private"
+            },
+            {
+                label:'matija-biki',
+                id:6,
+                type:"private"
+            }
         ]
     }
 
@@ -34,9 +63,10 @@ export const ChannelProvider = ({children}) =>{
         }
     }
 
-    const changeChannel = channelName =>{
+    const changeChannel = (channel)=>{
+        console.log(channel);
         dispatch({
-            type:CHANGE_CHANNEL,payload:channelName
+            type:CHANGE_CHANNEL,payload:{...channel}
         })
     }
 

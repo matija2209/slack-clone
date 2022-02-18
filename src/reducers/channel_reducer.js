@@ -9,7 +9,7 @@ export default function channel_reducer(state,action) {
         case ADD_CHANNEL:
             return {...state,channelList:[...state.channelList,action.payload]}
         case CHANGE_CHANNEL:
-            return {...state,defaultChannel:{label:action.payload}}
+            return {...state,defaultChannel:{...action.payload}}
         default:
             break;
     }
