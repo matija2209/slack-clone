@@ -5,15 +5,40 @@ import {useChannelContext} from '../context/channel_context'
 import ChannelListItem from './ChannelListItem'
 
 function DirectMessagesList() {
-  const {loggedUserId,users} = useUserContext()
-  const {changeChannel} = useChannelContext()
+  const {loggedUserId,loggedUserDisplayName,users} = useUserContext()
+  const {changeChannel,channelList} = useChannelContext()
 
-  const loggedUserFriends = users.filter(user=>user.id === loggedUserId).map(user=>user.friends)[0]
-  console.log(loggedUserFriends);
+  const friends = users.filter(user=>user.id === loggedUserId).map(user=>user.friends)[0]
+  
+  const dms = channelList
+  .filter(cn=>cn.type === "private")
+  .filter(dm=>{
+    const friendsDms = friends.map(friend=>`${loggedUserDisplayName}-${friend.label}`.toLocaleLowerCase())
+    return friendsDms.find(friendThread=>friendThread===dm.label)
+  })
+
+  // .fitler(cn=>{
+  //   console.log(cn);
+  //   const x= friends.filter(friend=>{
+  //     const friendChatThreadName = `${loggedUserDisplayName}-${friend.label}`.toLocaleLowerCase()
+  //     return cn.label === friendChatThreadName
+  //   })
+  //   console.log(x);
+  // })
+
+
+  // const getFriendChatThreads = friends.filter((friend)=>{
+  //   const friendChatThreadName = `${loggedUserDisplayName}-${friend.label}`.toLocaleLowerCase()
+  //   const getChatThreadPerQuery = messages.filter(msg=>{
+  //     return msg.channel === friendChatThreadName
+  //   })
+  //   return getChatThreadPerQuery
+  // })
+  console.log(dms);
   return <>
     <ListTitle title="Direct messages"></ListTitle>
     <ul>
-      {loggedUserFriends.map(channel=>{
+      {dms.map(channel=>{
         return <ChannelListItem channel={channel} changeChannel={changeChannel}>
         </ChannelListItem>
       })}

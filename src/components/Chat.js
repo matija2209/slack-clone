@@ -4,13 +4,20 @@ import ChatMessages from './ChatMessages'
 import styled from 'styled-components'
 import {useChannelContext} from '../context/channel_context'
 import ChatTitle from './ChatTitle'
+import { useUserContext } from '../context/user_context'
 
 function Chat() {
   const {defaultChannel} = useChannelContext()
+
+  let chatTitle = defaultChannel.label
+  if (defaultChannel.type === "private") {
+    chatTitle = defaultChannel.label.split("-")[1]
+  } 
+  
   return (
     <main>
       <Wrapper>
-        <ChatTitle name={defaultChannel.label}></ChatTitle>
+        <ChatTitle name={chatTitle}></ChatTitle>
         <ChatMessages></ChatMessages>
         <ChatInput></ChatInput>
       </Wrapper>

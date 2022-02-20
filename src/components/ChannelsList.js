@@ -14,7 +14,6 @@ function ChannelsList() {
   const channelsData = channelMemebership.map(cn=>{
     return {...channelList.find(channel=>channel.id===cn.id)}
   }).filter(cn=>cn.type==="public")
-
   const staticChannels = channelList.filter(cn=>cn.type !== "private" && cn.type !== "public")
 
   return <>

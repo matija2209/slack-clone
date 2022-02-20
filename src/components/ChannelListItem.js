@@ -8,12 +8,15 @@ const {channel,changeChannel} = obj
   const {setChannelName} = useChatContext()
   const {loggedUserDisplayName} = useUserContext()
   
+  const friendlyDmName = channel.label.split("-")[1]
+
   const handleClick = e =>{
     e.preventDefault()
     let currentUser = channel.label
     if (channel.type === "private") {
       currentUser = `${loggedUserDisplayName}-${channel.label}`.toLocaleLowerCase()
     }
+    console.log(channel);
     changeChannel({...channel})
     setChannelName({
       ...channel,label:currentUser})
@@ -21,7 +24,7 @@ const {channel,changeChannel} = obj
   }
   return <>
     <Wrapper key={channel.id}>
-      {channel.type === "private"?"":"#"}<input type="button" value={channel.label} onClick={handleClick} />
+      {channel.type === "private"?"":"#"}<input type="button" value={friendlyDmName} onClick={handleClick} />
     </Wrapper>
   </>
 }

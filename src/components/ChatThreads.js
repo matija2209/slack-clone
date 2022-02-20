@@ -16,7 +16,7 @@ function ChatThreads() {
   // does the filtering to show only messages that belong to the user
 
   if (defaultChannel.type === "private") {
-    currentChannel = `${loggedUserDisplayName}-${defaultChannel.label}`.toLocaleLowerCase()
+    // currentChannel = `${loggedUserDisplayName}-${defaultChannel.label}`.toLocaleLowerCase()
   }
   if (defaultChannel.type === "dms") {
     const friends = userData.friends
