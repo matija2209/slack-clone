@@ -34,7 +34,6 @@ function DirectMessagesList() {
   //   })
   //   return getChatThreadPerQuery
   // })
-  console.log(dms);
   return <>
     <ListTitle title="Direct messages"></ListTitle>
     <ul>

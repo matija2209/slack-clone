@@ -75,6 +75,24 @@ export const UserProvider = ({children}) =>{
         
                 ]
             },
+            {
+                id:3,
+                label:"Biki",
+                isAdmin:false,
+                friends : [
+                    {
+                        id:1,
+                        label:"Matija",
+                        type:"private"
+                    }
+                ],
+                member : [
+                    {
+                        id:1,
+                        label:"general",
+                    },
+                ]
+            },
         ],
     }
 

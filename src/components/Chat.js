@@ -13,7 +13,7 @@ function Chat() {
   if (defaultChannel.type === "private") {
     chatTitle = defaultChannel.label.split("-")[1]
   } 
-  
+  console.log(chatTitle);
   return (
     <main>
       <Wrapper>

@@ -12,7 +12,6 @@ function ChatThreads() {
   const userData = users.find(user=>user.id === loggedUserId)
 
   let threadMessages = messages.filter(msg=>msg.channelId === defaultChannel.id)
-  console.log(defaultChannel);
   // does the filtering to show only messages that belong to the user
 
   if (defaultChannel.type === "private") {
@@ -30,7 +29,6 @@ function ChatThreads() {
 
   if (defaultChannel.type === "threads"){
     const memberOf = userData.member
-    console.log(messages);
     threadMessages = messages.filter(chn=>{
       return memberOf.filter(channel=>{
         return chn.channelId === channel.id
